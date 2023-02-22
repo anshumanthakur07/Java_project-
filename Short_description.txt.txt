@@ -1,0 +1,16 @@
+Here are the main components of the system:
+ 1.	Suppliers database: This database will store details of all the suppliers the company deals with, such as their name, address, phone number, email address, and any other relevant information.
+
+ 2.	Items database: This database will store details of all the items the company purchases, such as their name, description, price, and any other relevant information. 
+
+3.	Orders database: This database will store details of all the orders sent to suppliers requesting goods, such as the supplier's name, the items ordered, the quantity of each item, the order date, the expected delivery date, and any other relevant information.
+
+4.	Receiving database: This database will store details of when goods are received from suppliers, such as the supplier's name, the items received, the quantity of each item, the receiving date, the expected delivery date, and any other relevant information. 
+
+5.	Payments database: This database will store details of payments made to suppliers, such as the supplier's name, the amount paid, the payment date, and any other relevant information. 
+
+6.	Reporting module: This module will provide a series of reports based on the data stored in the databases. Some examples of reports that can be generated are: 
+•	Supplier details report: This report will list all the suppliers the company deals with, along with their contact information. 
+•	Order details report: This report will list all the orders sent to suppliers, along with the items ordered and the expected delivery date. 
+•	Receiving details report: This report will list all the goods received from suppliers, along with the items received and the receiving date. 
+•	Payment details report: This report will list all the payments made to suppliers, along with the amount paid and the payment date.
