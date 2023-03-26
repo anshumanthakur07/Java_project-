@@ -92,8 +92,18 @@ public class project {
         public Order getOrder() { return order; }
         public void setOrder(Order order) { this.order = order; }
         public Date getReceivedDate() { return receivedDate; }
-        public void setReceivedDate(Date receivedDate) { this.receivedDate = received
+        public void setReceivedDate(Date receivedDate) { this.receivedDate = received;}
+
+        public double getPayment() {
+            return payment;
+        }
+
+        public void setPayment(double payment) {
+            this.payment = payment;
+        }
+    }
+
     
     
-    
-}
+
+
