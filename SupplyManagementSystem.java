@@ -11,7 +11,7 @@ class Supplier {
     private ArrayList<String> order_placed;
 
     public Supplier(String name, int id,long contact, String location) {
-        this.name = name;                              //cleaner
+        this.name = name;                              
         this.id = id;
         this.contact = contact;
         this.location = location;
