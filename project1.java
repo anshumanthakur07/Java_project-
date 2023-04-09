@@ -1,4 +1,4 @@
-public class project {
+public class project1 {
     public class Supplier {
         private int id;
         private String name;

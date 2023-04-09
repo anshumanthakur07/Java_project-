@@ -1,14 +1,24 @@
-//updated code 
 
+
+// import java.nio.file.*;
+// import java.io.BufferedWriter;
+import java.util.ArrayList;
+// import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Serializable;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.*;
 
-class Supplier {
-    private String name;
-    private int id;
-    private String date;
-    private String location;
-    private long contact;
-    private ArrayList<String> order_placed;
+class Supplier implements Serializable {
+     String name;
+     int id;
+     String date;
+     String location;
+     long contact;
+     ArrayList<String> order_placed;
 
     public Supplier(String name, int id,long contact, String location) {
         this.name = name;                              
@@ -42,14 +52,14 @@ class Supplier {
     }
 }
 
-public class SupplyManagementSystem {
+public class SMS_demo  {
     private ArrayList<Supplier> suppliers;
 
-    public SupplyManagementSystem() {
+    public SMS_demo() {
     suppliers = new ArrayList<Supplier>();
     }
-  public static void main(String[] args) {
-    SupplyManagementSystem obj = new SupplyManagementSystem();
+  public static void main(String[] args) throws IOException{
+    SMS_demo obj = new SMS_demo();
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -109,27 +119,41 @@ public class SupplyManagementSystem {
         Supplier supplier = new Supplier(name, id, contact, location);
         suppliers.add(supplier);
 
-        System.out.println("Supplier added successfully");
+        try{
+            FileOutputStream writeData = new FileOutputStream("supplier.ser");
+            ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
+        
+            writeStream.writeObject(suppliers);
+            writeStream.flush();
+            writeStream.close();
+            System.out.println("Supplier data  added successfully to file!");
+            
+        }catch (IOException e) {
+            System.out.println("Supplier data NOT added successfully to file!");
+        
+        }
+
+        // System.out.println("Supplier added successfully");
 
     }
-  public void Supplier_details() {
-        if (suppliers.isEmpty()) {
-            System.out.println("No suppliers in the system");
-            return;
-        }
-        else
-        {
+  public void Supplier_details() throws IOException {
 
-        System.out.println("List of suppliers:");
-        for (Supplier supplier: suppliers) 
-        {
-            System.out.println("ID: " + supplier.getId());
-            System.out.println("Name: " + supplier.getName());
-            System.out.println("contact: " + supplier.getContact());
-            System.out.println("Location: " + supplier.getLocation());
-        }
+    try
+    {
+        FileInputStream readData = new FileInputStream("supplier.ser");
+        ObjectInputStream readStream = new ObjectInputStream(readData);
+
+        ArrayList sup = (ArrayList<Supplier>) readStream.readObject();
+        readStream.close();
+
+        System.out.println(sup.toString());
+
     }
+    catch (IOException | ClassNotFoundException e) 
+    {
+        System.out.println("No data found!");
     }
+}
   
   public void get_order() {
         Scanner sc = new Scanner(System.in);
